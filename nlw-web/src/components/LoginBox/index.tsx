@@ -16,9 +16,16 @@ export function LoginBox() {
     const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=1d07a027b739f8fa312f`;
 
     useEffect(() => {
+        const url = window.location.href;
+        const hasGithubCode = url.includes('?code=');
 
+        if(hasGithubCode) {
+            const [urlWithoutCode, githubCode] = url.split('?code=')
+
+            console.log({ urlWithoutCode, githubCode })
+        }
     })
-    
+
     return (
        <div className={styles.loginBoxWrapper}>
            <strong>Entre e compartilhe sua mensagem</strong>
